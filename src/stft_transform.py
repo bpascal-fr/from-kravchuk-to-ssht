@@ -37,7 +37,7 @@ def the_stft_transform(x, time_t=[]):
     
     # Compute the Gaussian Short-Time Fourier Transform
     fx, _, Vx = signal.stft(
-        x, fs=1 / dt, window=g, nperseg=Ng, noverlap=Ng - 1, return_onesided=False
+        x, fs=1 / dt, window=g, nperseg=Ng, noverlap=Ng - 1, return_onesided=False, scaling='psd'
     )
 
     # remap the frequencies in a symmetric fashion
