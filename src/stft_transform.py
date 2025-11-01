@@ -34,9 +34,7 @@ def the_stft_transform(x, time_t=[]):
     # Gaussian window of unit energy
     Ng = len(x)
     g = signal.windows.gaussian(Ng, np.sqrt((Ng) / 2 / np.pi))
-    g = g / g.sum()
-    # g         = np.pi**(-1/4) * np.exp( - time_t**2 / 2 )
-
+    
     # Compute the Gaussian Short-Time Fourier Transform
     fx, _, Vx = signal.stft(
         x, fs=1 / dt, window=g, nperseg=Ng, noverlap=Ng - 1, return_onesided=False
